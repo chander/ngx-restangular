@@ -611,8 +611,8 @@ function providerConfig($http) {
 
         if (config.isSafe(operation)) {
           if (isOverrideOperation) {
-            urlHandler.resource(this, $http, request.httpConfig, callHeaders, request.params,
-              what, etag, callOperation)[callOperation]({}).subscribe(okCallback, errorCallback);
+            urlHandler.resource(this, $http, request.httpConfig, callHeaders, {},
+              what, etag, callOperation)[callOperation](request.params).subscribe(okCallback, errorCallback);
           } else {
             urlHandler.resource(this, $http, request.httpConfig, callHeaders, request.params,
               what, etag, callOperation)[callOperation]().subscribe(okCallback, errorCallback);
